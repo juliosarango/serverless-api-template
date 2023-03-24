@@ -1,0 +1,38 @@
+service: hola-mundo
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+	
+plugins:	
+  - serverless-offline   
+
+functions:
+  api-read:
+    handler: crud.read
+    events:
+      - http:
+          path: read
+          method: GET
+
+  api-create:
+    handler: crud.create
+    events:
+      - http:
+          path: post
+          method: POST
+
+  api-update:
+    handler: crud.update
+    events:
+      - http:
+          path: update
+          method: PUT        
+
+  api-delete:
+    handler: crud.deleted
+    events:
+      - http:
+          path: deleted
+          method: DELETE          
